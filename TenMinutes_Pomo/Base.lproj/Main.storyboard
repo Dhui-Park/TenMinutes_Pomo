@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,10 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="89" translatesAutoresizingMaskIntoConstraints="NO" id="1Yv-iw-Q3B">
-                                <rect key="frame" x="104.33333333333333" y="557" width="184.33333333333337" height="34.333333333333371"/>
+                                <rect key="frame" x="104.33333333333333" y="659" width="184.33333333333337" height="34.333333333333371"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38I-Qc-l5T">
                                         <rect key="frame" x="0.0" y="0.0" width="52" height="34.333333333333336"/>
+                                        <color key="tintColor" name="MainPurple"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="return" catalog="system"/>
                                         <connections>
@@ -29,6 +31,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGv-go-6pe">
                                         <rect key="frame" x="141" y="0.0" width="43.333333333333343" height="34.333333333333336"/>
+                                        <color key="tintColor" name="MainPurple"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="play" catalog="system"/>
                                         <connections>
@@ -38,17 +41,17 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhx-kk-ukT">
-                                <rect key="frame" x="137.66666666666666" y="229" width="118" height="48"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="109.00000000000001" y="179" width="175.33333333333337" height="71.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="60"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
                         <constraints>
-                            <constraint firstItem="Mhx-kk-ukT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="170" id="Joe-M2-bE4"/>
-                            <constraint firstItem="1Yv-iw-Q3B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="498" id="Rzj-mD-Sy4"/>
+                            <constraint firstItem="Mhx-kk-ukT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="Joe-M2-bE4"/>
+                            <constraint firstItem="1Yv-iw-Q3B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="600" id="Rzj-mD-Sy4"/>
                             <constraint firstItem="1Yv-iw-Q3B" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="aI0-DT-Xnq"/>
                             <constraint firstItem="Mhx-kk-ukT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fQ5-zG-vlp"/>
                         </constraints>
@@ -90,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Twc-BJ-1MQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="489" y="806"/>
+            <point key="canvasLocation" x="1042" y="806"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8U4-ZE-zr9">
@@ -117,8 +120,14 @@
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="play" catalog="system" width="117" height="128"/>
         <image name="return" catalog="system" width="128" height="102"/>
+        <namedColor name="MainPurple">
+            <color red="0.58039215686274515" green="0.3411764705882353" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

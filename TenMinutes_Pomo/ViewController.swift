@@ -16,13 +16,14 @@ class ViewController: UIViewController, CAAnimationDelegate {
     @IBOutlet weak var resetBtn: UIButton!
     
     let foreProgressLayer = CAShapeLayer()
+    let circleProgress = CAShapeLayer()
     let backProgressLayer = CAShapeLayer()
     let animation = CABasicAnimation(keyPath: "strokeEnd")
     
     var timer = Timer()
     var isTimerStarted: Bool = false
     var isAnimationStarted: Bool = false
-    var time: Int = 600
+    var time: Int = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,6 @@ class ViewController: UIViewController, CAAnimationDelegate {
         drawBackLayer()
     } // viewDidLoad()
 
-    #warning("TODO: - 3,2,1 시작! 화면 뜨고 시작")
     @IBAction func startBtnClicked(_ sender: UIButton) {
         resetBtn.isEnabled = true
         resetBtn.alpha = 1.0
@@ -56,7 +56,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         resetBtn.isEnabled = false
         resetBtn.alpha = 0.5
         timer.invalidate()
-        time = 600
+        time = 5
         isTimerStarted = false
         timeLabel.text = "10:00"
     }
@@ -73,7 +73,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
             resetBtn.alpha = 0.5
             startBtn.setImage(UIImage(systemName: "play"), for: .normal)
             timer.invalidate()
-            time = 600
+            time = 5
             isTimerStarted = false
             timeLabel.text = "10:00"
         } else {
@@ -91,22 +91,36 @@ class ViewController: UIViewController, CAAnimationDelegate {
     
     //background layer
     func drawBackLayer() {
-        backProgressLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX, y: view.frame.midY - 15), radius: 100, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX, y: view.frame.midY - 15), radius: 100, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
+        backProgressLayer.path = circlePath
         #warning("TODO: - design")
-        backProgressLayer.strokeColor = UIColor.orange.cgColor
+        backProgressLayer.strokeColor = UIColor(named: "MainPurple")?.cgColor
+        backProgressLayer.opacity = 0.5
         backProgressLayer.fillColor = UIColor.clear.cgColor
         backProgressLayer.lineWidth = 15
+        
+        backProgressLayer.shadowColor = UIColor(named: "MainPurple")?.cgColor
+        backProgressLayer.shadowRadius = 25.0
+        backProgressLayer.shadowOpacity = 1
+        backProgressLayer.shadowPath = circlePath.copy(strokingWithWidth: 20, lineCap: .round, lineJoin: .miter, miterLimit: 0)
+
+        foreProgressLayer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        
+        
         view.layer.addSublayer(backProgressLayer)
     }
     
     // fore layer
     #warning("TODO: - 버그: 세팅화면을 갔다가 오면 안되는 것")
     func drawForeLayer() {
-        foreProgressLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX, y: view.frame.midY - 15), radius: 100, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX, y: view.frame.midY - 15), radius: 100, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
+        foreProgressLayer.path = circlePath
         #warning("TODO: - design")
-        foreProgressLayer.strokeColor = UIColor.blue.cgColor
+        
+        foreProgressLayer.strokeColor = UIColor(named: "MainPurple")?.cgColor
         foreProgressLayer.fillColor = UIColor.clear.cgColor
         foreProgressLayer.lineWidth = 15
+        
         view.layer.addSublayer(foreProgressLayer)
     }
     
@@ -124,7 +138,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         animation.keyPath = "strokeEnd"
         animation.fromValue = 0
         animation.toValue = 1
-        animation.duration = 600
+        animation.duration = 5
         animation.delegate = self
         animation.isRemovedOnCompletion = false
         animation.isAdditive = true
