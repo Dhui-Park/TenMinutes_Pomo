@@ -33,7 +33,7 @@ class BreakTimeWordVC: UIViewController {
         case 0:
             self.wordLabel.text = "작은 것부터 꾸준히!"
         case 1:
-            self.wordLabel.text = "처음에는 힘들어도 곧 20분, 30분 오랫동안 집중할 거에요!"
+            self.wordLabel.text = "처음에는 힘들어도 \n곧 20분, 30분 오랫동안\n 집중할 거에요!"
         case 2 :
             self.wordLabel.text = "휴식도 중요해요!"
         default:

@@ -22,6 +22,26 @@ class MyOnboardingPageController: UIPageViewController {
         setViewControllers([pageVCList[0]], direction: .forward, animated: true, completion: { value in
             print(#fileID, #function, #line, "- value: \(value)")
         })
+        
+        self.dataSource = self
     }
     
+}
+
+extension MyOnboardingPageController: UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        let currentPageIndex = pageVCList.firstIndex(of: viewController as! BreakTimeWordVC) ?? 0
+        
+        if currentPageIndex == 0 { return pageVCList[pageVCList.count - 1] }
+        
+        return pageVCList[currentPageIndex - 1]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        let currentPageIndex = pageVCList.firstIndex(of: viewController as! BreakTimeWordVC) ?? 0
+        
+        if currentPageIndex == pageVCList.count - 1 { return pageVCList[0] }
+        
+        return pageVCList[currentPageIndex + 1]
+    }
 }

@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="64.885496183206101" y="3.5211267605633805"/>
         </scene>
-        <!--Page View Controller-->
+        <!--My Onboarding Page Controller-->
         <scene sceneID="ddZ-Gx-KZ5">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="hUQ-L8-m5R" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="hUQ-L8-m5R" customClass="MyOnboardingPageController" customModule="TenMinutes_Pomo" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sno-Ec-oeD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1119" y="-118"/>
