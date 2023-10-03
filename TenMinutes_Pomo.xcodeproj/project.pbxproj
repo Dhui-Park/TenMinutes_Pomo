@@ -13,6 +13,11 @@
 		B717AD782AC9A4AA00497AAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B717AD762AC9A4AA00497AAC /* Main.storyboard */; };
 		B717AD7A2AC9A4AD00497AAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B717AD792AC9A4AD00497AAC /* Assets.xcassets */; };
 		B717AD7D2AC9A4AD00497AAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B717AD7B2AC9A4AD00497AAC /* LaunchScreen.storyboard */; };
+		B73CC9052ACC0F5A00F1AF13 /* BreakTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73CC9042ACC0F5A00F1AF13 /* BreakTime.storyboard */; };
+		B73CC9072ACC10B000F1AF13 /* BreakTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CC9062ACC10B000F1AF13 /* BreakTimeViewController.swift */; };
+		B73CC9092ACC17E300F1AF13 /* BreakTimeWordVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73CC9082ACC17E300F1AF13 /* BreakTimeWordVC.storyboard */; };
+		B73CC90B2ACC17FF00F1AF13 /* BreakTimeWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CC90A2ACC17FE00F1AF13 /* BreakTimeWordVC.swift */; };
+		B73CC90D2ACC3E0700F1AF13 /* MyOnboardingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CC90C2ACC3E0700F1AF13 /* MyOnboardingPageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		B717AD792AC9A4AD00497AAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B717AD7C2AC9A4AD00497AAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B717AD7E2AC9A4AD00497AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B73CC9042ACC0F5A00F1AF13 /* BreakTime.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BreakTime.storyboard; sourceTree = "<group>"; };
+		B73CC9062ACC10B000F1AF13 /* BreakTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTimeViewController.swift; sourceTree = "<group>"; };
+		B73CC9082ACC17E300F1AF13 /* BreakTimeWordVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BreakTimeWordVC.storyboard; sourceTree = "<group>"; };
+		B73CC90A2ACC17FE00F1AF13 /* BreakTimeWordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTimeWordVC.swift; sourceTree = "<group>"; };
+		B73CC90C2ACC3E0700F1AF13 /* MyOnboardingPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOnboardingPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +70,14 @@
 				B717AD722AC9A4AA00497AAC /* SceneDelegate.swift */,
 				B717AD742AC9A4AA00497AAC /* ViewController.swift */,
 				B717AD762AC9A4AA00497AAC /* Main.storyboard */,
+				B73CC9042ACC0F5A00F1AF13 /* BreakTime.storyboard */,
+				B73CC9062ACC10B000F1AF13 /* BreakTimeViewController.swift */,
 				B717AD792AC9A4AD00497AAC /* Assets.xcassets */,
 				B717AD7B2AC9A4AD00497AAC /* LaunchScreen.storyboard */,
 				B717AD7E2AC9A4AD00497AAC /* Info.plist */,
+				B73CC9082ACC17E300F1AF13 /* BreakTimeWordVC.storyboard */,
+				B73CC90A2ACC17FE00F1AF13 /* BreakTimeWordVC.swift */,
+				B73CC90C2ACC3E0700F1AF13 /* MyOnboardingPageController.swift */,
 			);
 			path = TenMinutes_Pomo;
 			sourceTree = "<group>";
@@ -127,7 +142,9 @@
 			files = (
 				B717AD7D2AC9A4AD00497AAC /* LaunchScreen.storyboard in Resources */,
 				B717AD7A2AC9A4AD00497AAC /* Assets.xcassets in Resources */,
+				B73CC9092ACC17E300F1AF13 /* BreakTimeWordVC.storyboard in Resources */,
 				B717AD782AC9A4AA00497AAC /* Main.storyboard in Resources */,
+				B73CC9052ACC0F5A00F1AF13 /* BreakTime.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,8 +156,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B717AD752AC9A4AA00497AAC /* ViewController.swift in Sources */,
+				B73CC90B2ACC17FF00F1AF13 /* BreakTimeWordVC.swift in Sources */,
+				B73CC90D2ACC3E0700F1AF13 /* MyOnboardingPageController.swift in Sources */,
 				B717AD712AC9A4A900497AAC /* AppDelegate.swift in Sources */,
 				B717AD732AC9A4AA00497AAC /* SceneDelegate.swift in Sources */,
+				B73CC9072ACC10B000F1AF13 /* BreakTimeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

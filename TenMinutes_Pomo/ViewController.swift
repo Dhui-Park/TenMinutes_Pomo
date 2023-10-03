@@ -16,14 +16,14 @@ class ViewController: UIViewController, CAAnimationDelegate {
     @IBOutlet weak var resetBtn: UIButton!
     
     let foreProgressLayer = CAShapeLayer()
-    let circleProgress = CAShapeLayer()
+    
     let backProgressLayer = CAShapeLayer()
     let animation = CABasicAnimation(keyPath: "strokeEnd")
     
     var timer = Timer()
     var isTimerStarted: Bool = false
     var isAnimationStarted: Bool = false
-    var time: Int = 5
+    var time: Int = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         resetBtn.isEnabled = false
         resetBtn.alpha = 0.5
         timer.invalidate()
-        time = 5
+        time = 10
         isTimerStarted = false
         timeLabel.text = "10:00"
     }
@@ -69,13 +69,26 @@ class ViewController: UIViewController, CAAnimationDelegate {
     @objc func updateTimer() {
         
         if time < 1 {
+            #warning("TODO: - 삐빕 소리 내기")
             resetBtn.isEnabled = false
             resetBtn.alpha = 0.5
             startBtn.setImage(UIImage(systemName: "play"), for: .normal)
             timer.invalidate()
-            time = 5
+            time = 10
             isTimerStarted = false
             timeLabel.text = "10:00"
+            #warning("TODO: - 휴식 화면 다이얼로그 띄우기")
+//            print("휴식화면 띄워라")
+            // 1. 스토리보드 가져오기
+            let storyboard = UIStoryboard.init(name: "BreakTime", bundle: nil)
+            // 2. 스토리보드를 통해 뷰컨트롤러 가져오기
+            guard let breakTimeVC = storyboard.instantiateInitialViewController() else { return }
+            // 3. 팝업 효과 설정
+            breakTimeVC.modalPresentationStyle = .overCurrentContext
+            breakTimeVC.modalTransitionStyle = .crossDissolve
+            
+            self.present(breakTimeVC, animated: true)
+            
         } else {
             time -= 1
             timeLabel.text = formatTime()
@@ -93,13 +106,13 @@ class ViewController: UIViewController, CAAnimationDelegate {
     func drawBackLayer() {
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX, y: view.frame.midY - 15), radius: 100, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         backProgressLayer.path = circlePath
-        #warning("TODO: - design")
         backProgressLayer.strokeColor = UIColor(named: "MainPurple")?.cgColor
-        backProgressLayer.opacity = 0.5
+        backProgressLayer.opacity = 0.6
         backProgressLayer.fillColor = UIColor.clear.cgColor
         backProgressLayer.lineWidth = 15
         
         backProgressLayer.shadowColor = UIColor(named: "MainPurple")?.cgColor
+        
         backProgressLayer.shadowRadius = 25.0
         backProgressLayer.shadowOpacity = 1
         backProgressLayer.shadowPath = circlePath.copy(strokingWithWidth: 20, lineCap: .round, lineJoin: .miter, miterLimit: 0)
@@ -115,7 +128,6 @@ class ViewController: UIViewController, CAAnimationDelegate {
     func drawForeLayer() {
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX, y: view.frame.midY - 15), radius: 100, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         foreProgressLayer.path = circlePath
-        #warning("TODO: - design")
         
         foreProgressLayer.strokeColor = UIColor(named: "MainPurple")?.cgColor
         foreProgressLayer.fillColor = UIColor.clear.cgColor
@@ -138,7 +150,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         animation.keyPath = "strokeEnd"
         animation.fromValue = 0
         animation.toValue = 1
-        animation.duration = 5
+        animation.duration = 10
         animation.delegate = self
         animation.isRemovedOnCompletion = false
         animation.isAdditive = true
