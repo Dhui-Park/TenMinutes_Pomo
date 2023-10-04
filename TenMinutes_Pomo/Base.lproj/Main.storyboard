@@ -18,22 +18,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="89" translatesAutoresizingMaskIntoConstraints="NO" id="1Yv-iw-Q3B">
-                                <rect key="frame" x="104.33333333333333" y="659" width="184.33333333333337" height="34.333333333333371"/>
+                                <rect key="frame" x="88.333333333333329" y="659" width="216.33333333333337" height="50.333333333333371"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38I-Qc-l5T">
-                                        <rect key="frame" x="0.0" y="0.0" width="52" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="68" height="50.333333333333336"/>
                                         <color key="tintColor" name="MainPurple"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="return" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="return" catalog="system" buttonSize="large"/>
                                         <connections>
                                             <action selector="resetBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lbR-Ie-Ca4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGv-go-6pe">
-                                        <rect key="frame" x="141" y="0.0" width="43.333333333333343" height="34.333333333333336"/>
+                                        <rect key="frame" x="157" y="0.0" width="59.333333333333343" height="50.333333333333336"/>
                                         <color key="tintColor" name="MainPurple"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="play" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="play" catalog="system" buttonSize="large"/>
                                         <connections>
                                             <action selector="startBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="izO-e0-7sO"/>
                                         </connections>
@@ -67,7 +67,7 @@
             </objects>
             <point key="canvasLocation" x="-509" y="807"/>
         </scene>
-        <!--settings-->
+        <!--Laps-->
         <scene sceneID="Apa-Bx-Nf2">
             <objects>
                 <viewController id="Ii0-fI-rKv" sceneMemberID="viewController">
@@ -75,25 +75,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-XF-wmS">
-                                <rect key="frame" x="113" y="282" width="167" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="records" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Enw-4I-k8a">
+                                <rect key="frame" x="118.66666666666667" y="179" width="155.66666666666663" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3i1-Bf-1VE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
                         <constraints>
-                            <constraint firstItem="ac6-XF-wmS" firstAttribute="top" secondItem="3i1-Bf-1VE" secondAttribute="top" constant="223" id="WR2-jE-LxX"/>
-                            <constraint firstItem="ac6-XF-wmS" firstAttribute="centerX" secondItem="3i1-Bf-1VE" secondAttribute="centerX" id="uBc-gG-BFu"/>
+                            <constraint firstItem="Enw-4I-k8a" firstAttribute="centerX" secondItem="3i1-Bf-1VE" secondAttribute="centerX" id="80D-Ye-btg"/>
+                            <constraint firstItem="Enw-4I-k8a" firstAttribute="top" secondItem="3i1-Bf-1VE" secondAttribute="top" constant="120" id="iN1-ZC-e0E"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="settings" image="gearshape" catalog="system" id="aC2-4p-2yR"/>
+                    <tabBarItem key="tabBarItem" title="Laps" image="list.clipboard" catalog="system" id="aC2-4p-2yR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Twc-BJ-1MQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042" y="806"/>
+            <point key="canvasLocation" x="367" y="806"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Nb4-Th-roN">
+            <objects>
+                <viewController id="c9P-Cw-VR0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2b3-YE-rpm">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrQ-9d-nTb">
+                                <rect key="frame" x="113" y="179" width="167" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="K2r-mO-90u"/>
+                        <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
+                        <constraints>
+                            <constraint firstItem="qrQ-9d-nTb" firstAttribute="centerX" secondItem="K2r-mO-90u" secondAttribute="centerX" id="hJV-jA-9Rh"/>
+                            <constraint firstItem="qrQ-9d-nTb" firstAttribute="top" secondItem="K2r-mO-90u" secondAttribute="top" constant="120" id="ofn-ic-04q"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" id="D2N-gd-19B"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AwF-9H-2GI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1248" y="806"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8U4-ZE-zr9">
@@ -108,6 +136,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="zfc-3Y-ayX"/>
                         <segue destination="Ii0-fI-rKv" kind="relationship" relationship="viewControllers" id="WfS-I9-EwY"/>
+                        <segue destination="c9P-Cw-VR0" kind="relationship" relationship="viewControllers" id="bz9-HZ-hC5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P8X-hs-ieJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -118,6 +147,7 @@
     <resources>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="house" catalog="system" width="128" height="104"/>
+        <image name="list.clipboard" catalog="system" width="98" height="128"/>
         <image name="play" catalog="system" width="117" height="128"/>
         <image name="return" catalog="system" width="128" height="102"/>
         <namedColor name="MainPurple">

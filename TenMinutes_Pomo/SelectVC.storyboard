@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SelectVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SelectVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="SelectVC" customModule="TenMinutes_Pomo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LM8-5a-mUI">
+                                <rect key="frame" x="36.666666666666657" y="238.66666666666663" width="320" height="400"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcT-B5-iOA">
+                                        <rect key="frame" x="40" y="256" width="240" height="35"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="휴식"/>
+                                        <connections>
+                                            <action selector="breakTimeBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="s8v-LH-U1g"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="집중이 잘 안되시면  잠시 쉬어가요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bR5-Ab-Bya">
+                                        <rect key="frame" x="84.666666666666671" y="130.00000000000003" width="150.66666666666663" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbp-LB-9P0">
+                                        <rect key="frame" x="105.33333333333334" y="65.000000000000028" width="109" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="RcT-B5-iOA" firstAttribute="top" secondItem="LM8-5a-mUI" secondAttribute="top" constant="256" id="5XL-02-oIp"/>
+                                    <constraint firstItem="Kbp-LB-9P0" firstAttribute="top" secondItem="LM8-5a-mUI" secondAttribute="top" constant="65" id="KFH-pD-ZMP"/>
+                                    <constraint firstAttribute="height" constant="400" id="LV0-pf-eBC"/>
+                                    <constraint firstItem="Kbp-LB-9P0" firstAttribute="centerX" secondItem="LM8-5a-mUI" secondAttribute="centerX" id="TD8-Po-em9"/>
+                                    <constraint firstItem="RcT-B5-iOA" firstAttribute="centerX" secondItem="LM8-5a-mUI" secondAttribute="centerX" id="XZZ-4B-bvV"/>
+                                    <constraint firstItem="RcT-B5-iOA" firstAttribute="leading" secondItem="LM8-5a-mUI" secondAttribute="leading" constant="40" id="Xpw-LI-5UV"/>
+                                    <constraint firstItem="bR5-Ab-Bya" firstAttribute="top" secondItem="LM8-5a-mUI" secondAttribute="top" constant="130" id="fwO-KM-Cap"/>
+                                    <constraint firstAttribute="width" constant="320" id="poL-KE-jdN"/>
+                                    <constraint firstItem="bR5-Ab-Bya" firstAttribute="centerX" secondItem="LM8-5a-mUI" secondAttribute="centerX" id="sB4-Su-2Ll"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.66429532284768211" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="LM8-5a-mUI" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="ac7-SR-z58"/>
+                            <constraint firstItem="LM8-5a-mUI" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="dlL-6R-mhm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="timeLabel" destination="Kbp-LB-9P0" id="wXk-U6-92D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70.992366412213741" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

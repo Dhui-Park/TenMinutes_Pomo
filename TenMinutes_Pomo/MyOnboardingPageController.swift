@@ -11,8 +11,9 @@ import UIKit
 class MyOnboardingPageController: UIPageViewController {
     
     var numbers: [Int] = [0, 1, 2, 3]
-    
+    var currentIndex: Int? = nil
     var pageVCList: [BreakTimeWordVC] = []
+    var currentPageChanged: ((Int) -> Void)? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,27 @@ class MyOnboardingPageController: UIPageViewController {
         })
         
         self.dataSource = self
+    }
+    
+    func goNext(){
+        print(#fileID, #function, #line, "- ")
+        
+        var nextPageIndex: Int = 0
+        let currentPageIndex = currentIndex ?? 0
+        
+        nextPageIndex = currentPageIndex + 1
+        
+        if nextPageIndex >= pageVCList.count {
+            nextPageIndex = 0
+        }
+        
+        
+        setViewControllers([pageVCList[nextPageIndex]], direction: .forward, animated: true, completion: { [weak self] value in
+            print(#fileID, #function, #line, "- value: \(value)")
+            guard let self = self else { return }
+            self.currentIndex = nextPageIndex
+            currentPageChanged?(nextPageIndex)
+        })
     }
     
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, CAAnimationDelegate {
 
@@ -32,6 +33,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
     } // viewDidLoad()
 
     @IBAction func startBtnClicked(_ sender: UIButton) {
+        
         resetBtn.isEnabled = true
         resetBtn.alpha = 1.0
         
@@ -44,10 +46,12 @@ class ViewController: UIViewController, CAAnimationDelegate {
             resetBtn.isEnabled = false
             
         } else {
+            
             pausedAnimation()
             timer.invalidate()
             isTimerStarted = false
             startBtn.setImage(UIImage(systemName: "play"), for: .normal)
+            
         }
     }
     
@@ -69,7 +73,6 @@ class ViewController: UIViewController, CAAnimationDelegate {
     @objc func updateTimer() {
         
         if time < 1 {
-            #warning("TODO: - 삐빕 소리 내기")
             resetBtn.isEnabled = false
             resetBtn.alpha = 0.5
             startBtn.setImage(UIImage(systemName: "play"), for: .normal)
@@ -77,17 +80,22 @@ class ViewController: UIViewController, CAAnimationDelegate {
             time = 10
             isTimerStarted = false
             timeLabel.text = "10:00"
-            #warning("TODO: - 휴식 화면 다이얼로그 띄우기")
-//            print("휴식화면 띄워라")
-            // 1. 스토리보드 가져오기
-            let storyboard = UIStoryboard.init(name: "BreakTime", bundle: nil)
-            // 2. 스토리보드를 통해 뷰컨트롤러 가져오기
-            guard let breakTimeVC = storyboard.instantiateInitialViewController() else { return }
-            // 3. 팝업 효과 설정
-            breakTimeVC.modalPresentationStyle = .overCurrentContext
-            breakTimeVC.modalTransitionStyle = .crossDissolve
             
-            self.present(breakTimeVC, animated: true)
+            #warning("TODO: - 진동 실기계 테스트 필요")
+            //MARK: - Vibration
+            UIDevice.vibrate()
+            
+            #warning("TODO: - 계속 집중 or 휴식 선택화면 띄우기")
+            //MARK: - 선택화면 띄우기
+            // 1. 스토리보드 가져오기
+            let storyboard = UIStoryboard.init(name: "SelectVC", bundle: nil)
+            // 2. 스토리보드를 통해 뷰컨트롤러 가져오기
+            guard let selectVC = storyboard.instantiateInitialViewController() else { return }
+            // 3. 팝업 효과 설정
+            selectVC.modalPresentationStyle = .overCurrentContext
+            selectVC.modalTransitionStyle = .crossDissolve
+            
+            self.present(selectVC, animated: true)
             
         } else {
             time -= 1
@@ -202,3 +210,9 @@ extension Int {
     }
 }
 
+extension UIDevice {
+    static func vibrate() {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+        print("Brrrrrr")
+    }
+}

@@ -17,14 +17,22 @@ class BreakTimeViewController: UIViewController {
     var timer = Timer()
     var time: Int = 10
     
+    var embededMyOnboardingPageVC: MyOnboardingPageController? {
+        return children.first(where: { $0 is MyOnboardingPageController }) as? MyOnboardingPageController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(#fileID, #function, #line, "- ")
         
-        #warning("TODO: - 페이지뷰컨트롤러로 명언이나 화이팅하는 문구들 만들기")
         
         contentView.layer.cornerRadius = 30
         startTimer()
+        
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { [weak self] _ in
+            guard let self = self else { return }
+            embededMyOnboardingPageVC?.goNext()
+        })
     }
     
     func startTimer() {
