@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        let shared01 : RecordRepository = RecordRepository.shared
+//        let shared02 : RecordRepository = RecordRepository.shared
+        
+//        let test01 : RecordRepository = RecordRepository()
+//        
+//        let test02 : RecordRepository = RecordRepository()
+        
+        RecordRepository.shared.addRecord()
+        RecordRepository.shared.addRecord()
+        RecordRepository.shared.addRecord()
+        
+        let result = RecordRepository.shared.fetchRecords()
+
+        print(#fileID, #function, #line, "- result: \(result)")
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
         return true
     }
 

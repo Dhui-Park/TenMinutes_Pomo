@@ -13,6 +13,11 @@
 		B717AD782AC9A4AA00497AAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B717AD762AC9A4AA00497AAC /* Main.storyboard */; };
 		B717AD7A2AC9A4AD00497AAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B717AD792AC9A4AD00497AAC /* Assets.xcassets */; };
 		B717AD7D2AC9A4AD00497AAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B717AD7B2AC9A4AD00497AAC /* LaunchScreen.storyboard */; };
+		B72181902AD525B00025C5FE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B721818F2AD525B00025C5FE /* Realm */; };
+		B72181922AD525B00025C5FE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B72181912AD525B00025C5FE /* RealmSwift */; };
+		B72181942AD526990025C5FE /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72181932AD526990025C5FE /* RecordVC.swift */; };
+		B72181992AD52DFF0025C5FE /* RecordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72181982AD52DFF0025C5FE /* RecordEntity.swift */; };
+		B721819B2AD52FD80025C5FE /* RecordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B721819A2AD52FD80025C5FE /* RecordRepository.swift */; };
 		B73CC9052ACC0F5A00F1AF13 /* BreakTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73CC9042ACC0F5A00F1AF13 /* BreakTime.storyboard */; };
 		B73CC9072ACC10B000F1AF13 /* BreakTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CC9062ACC10B000F1AF13 /* BreakTimeViewController.swift */; };
 		B73CC9092ACC17E300F1AF13 /* BreakTimeWordVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73CC9082ACC17E300F1AF13 /* BreakTimeWordVC.storyboard */; };
@@ -20,6 +25,11 @@
 		B73CC90D2ACC3E0700F1AF13 /* MyOnboardingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CC90C2ACC3E0700F1AF13 /* MyOnboardingPageController.swift */; };
 		B73CC90F2ACD2A1A00F1AF13 /* SelectVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73CC90E2ACD2A1A00F1AF13 /* SelectVC.storyboard */; };
 		B73CC9112ACD2A2C00F1AF13 /* SelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CC9102ACD2A2C00F1AF13 /* SelectVC.swift */; };
+		B789AF3E2ACEAEC500400F55 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = B789AF3D2ACEAEC500400F55 /* RxBlocking */; };
+		B789AF402ACEAEC500400F55 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B789AF3F2ACEAEC500400F55 /* RxBlocking-Dynamic */; };
+		B789AF422ACEAEC500400F55 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B789AF412ACEAEC500400F55 /* RxCocoa */; };
+		B789AF442ACEAEC500400F55 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B789AF432ACEAEC500400F55 /* RxCocoa-Dynamic */; };
+		B789AF462ACEAEC500400F55 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B789AF452ACEAEC500400F55 /* RxRelay */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +41,9 @@
 		B717AD792AC9A4AD00497AAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B717AD7C2AC9A4AD00497AAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B717AD7E2AC9A4AD00497AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B72181932AD526990025C5FE /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
+		B72181982AD52DFF0025C5FE /* RecordEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEntity.swift; sourceTree = "<group>"; };
+		B721819A2AD52FD80025C5FE /* RecordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRepository.swift; sourceTree = "<group>"; };
 		B73CC9042ACC0F5A00F1AF13 /* BreakTime.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BreakTime.storyboard; sourceTree = "<group>"; };
 		B73CC9062ACC10B000F1AF13 /* BreakTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTimeViewController.swift; sourceTree = "<group>"; };
 		B73CC9082ACC17E300F1AF13 /* BreakTimeWordVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BreakTimeWordVC.storyboard; sourceTree = "<group>"; };
@@ -45,6 +58,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B72181902AD525B00025C5FE /* Realm in Frameworks */,
+				B789AF462ACEAEC500400F55 /* RxRelay in Frameworks */,
+				B72181922AD525B00025C5FE /* RealmSwift in Frameworks */,
+				B789AF442ACEAEC500400F55 /* RxCocoa-Dynamic in Frameworks */,
+				B789AF422ACEAEC500400F55 /* RxCocoa in Frameworks */,
+				B789AF3E2ACEAEC500400F55 /* RxBlocking in Frameworks */,
+				B789AF402ACEAEC500400F55 /* RxBlocking-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +90,7 @@
 		B717AD6F2AC9A4A900497AAC /* TenMinutes_Pomo */ = {
 			isa = PBXGroup;
 			children = (
+				B72181952AD52DC20025C5FE /* Scenes */,
 				B717AD702AC9A4A900497AAC /* AppDelegate.swift */,
 				B717AD722AC9A4AA00497AAC /* SceneDelegate.swift */,
 				B717AD742AC9A4AA00497AAC /* ViewController.swift */,
@@ -88,6 +109,32 @@
 			path = TenMinutes_Pomo;
 			sourceTree = "<group>";
 		};
+		B72181952AD52DC20025C5FE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B72181962AD52DCB0025C5FE /* Record */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B72181962AD52DCB0025C5FE /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				B72181972AD52DEE0025C5FE /* Models */,
+				B72181932AD526990025C5FE /* RecordVC.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		B72181972AD52DEE0025C5FE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B72181982AD52DFF0025C5FE /* RecordEntity.swift */,
+				B721819A2AD52FD80025C5FE /* RecordRepository.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,6 +151,15 @@
 			dependencies = (
 			);
 			name = TenMinutes_Pomo;
+			packageProductDependencies = (
+				B789AF3D2ACEAEC500400F55 /* RxBlocking */,
+				B789AF3F2ACEAEC500400F55 /* RxBlocking-Dynamic */,
+				B789AF412ACEAEC500400F55 /* RxCocoa */,
+				B789AF432ACEAEC500400F55 /* RxCocoa-Dynamic */,
+				B789AF452ACEAEC500400F55 /* RxRelay */,
+				B721818F2AD525B00025C5FE /* Realm */,
+				B72181912AD525B00025C5FE /* RealmSwift */,
+			);
 			productName = TenMinutes_Pomo;
 			productReference = B717AD6D2AC9A4A900497AAC /* TenMinutes_Pomo.app */;
 			productType = "com.apple.product-type.application";
@@ -132,6 +188,10 @@
 				Base,
 			);
 			mainGroup = B717AD642AC9A4A900497AAC;
+			packageReferences = (
+				B789AF3C2ACEAEC500400F55 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				B721818E2AD525B00025C5FE /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = B717AD6E2AC9A4A900497AAC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -166,8 +226,11 @@
 				B73CC9112ACD2A2C00F1AF13 /* SelectVC.swift in Sources */,
 				B73CC90B2ACC17FF00F1AF13 /* BreakTimeWordVC.swift in Sources */,
 				B73CC90D2ACC3E0700F1AF13 /* MyOnboardingPageController.swift in Sources */,
+				B721819B2AD52FD80025C5FE /* RecordRepository.swift in Sources */,
 				B717AD712AC9A4A900497AAC /* AppDelegate.swift in Sources */,
+				B72181992AD52DFF0025C5FE /* RecordEntity.swift in Sources */,
 				B717AD732AC9A4AA00497AAC /* SceneDelegate.swift in Sources */,
+				B72181942AD526990025C5FE /* RecordVC.swift in Sources */,
 				B73CC9072ACC10B000F1AF13 /* BreakTimeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +454,63 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B721818E2AD525B00025C5FE /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B789AF3C2ACEAEC500400F55 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B721818F2AD525B00025C5FE /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B721818E2AD525B00025C5FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		B72181912AD525B00025C5FE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B721818E2AD525B00025C5FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		B789AF3D2ACEAEC500400F55 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B789AF3C2ACEAEC500400F55 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		B789AF3F2ACEAEC500400F55 /* RxBlocking-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B789AF3C2ACEAEC500400F55 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxBlocking-Dynamic";
+		};
+		B789AF412ACEAEC500400F55 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B789AF3C2ACEAEC500400F55 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		B789AF432ACEAEC500400F55 /* RxCocoa-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B789AF3C2ACEAEC500400F55 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxCocoa-Dynamic";
+		};
+		B789AF452ACEAEC500400F55 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B789AF3C2ACEAEC500400F55 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B717AD652AC9A4A900497AAC /* Project object */;
 }

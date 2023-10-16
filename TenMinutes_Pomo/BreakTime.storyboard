@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbO-vI-2NG" userLabel="contentView">
-                                <rect key="frame" x="36.666666666666657" y="238.66666666666663" width="320" height="400"/>
+                                <rect key="frame" x="36" y="238" width="320" height="400"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOT-6c-LzW">
                                         <rect key="frame" x="101" y="95.000000000000028" width="118" height="48"/>

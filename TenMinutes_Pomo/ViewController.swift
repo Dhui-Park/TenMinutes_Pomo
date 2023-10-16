@@ -5,35 +5,90 @@
 //  Created by dhui on 2023/10/01.
 //
 
+// frameworks
 import UIKit
+// AV: AudioVisual
 import AVFoundation
 
+/// 클래스 ViewController는 UIViewController를 상속하고, 또 CAAnimationDelegate를 '채택'한다.
+/// class와 struct의 차이는?
+///
+/// Apple documents <Structures vs Classes>
+/// Structures: value types
+/// Classes: reference types
+///  Swift의 타입에는 두 종류가 있다. value / reference
+///  예를 들어 친구에게 문서를 보여준다고 했을 때,
+///  1. 복사해서 보내준다
+///  2. 구글 닥스나 icloud에 공유해서 보여준다.
+///  이 두가지 방법이 있을 것이다. 두가지 모두 친구가 읽고, 그 문서를 수정하고 등등 할 수 있는 것은 마찬가지.
+///  하지만 1번은 친구가 아무리 수정해도 복사하기 전 나의 문서에는 아무런 영향 x
+///
+///  value type:
+///  Structures, enum, tuple이 있다.
+///  1번과 유사(복사본을 넘겨준다)
+///
+///  reference type:
+///  Classes, actors, closures
+///  2번과 유사(링크를 보내준다)
+///
+/// - Use structures by default.
+/// 
+/// - Use classes when you need Objective-C interoperability(정보처리상호운용). : objective-c가 필요하다면
+/// - Use classes when you need to control the identity of the data you’re modeling.
+/// class 사용하면 앱 전반적으로 한번 변경할때 다 바꿀 수 있다. class는 reference type이기에
+/// - Use structures along with protocols to adopt behavior by sharing implementations.
 class ViewController: UIViewController, CAAnimationDelegate {
 
+    // @IBOutlet에서 IB는 Interface Builder
+    // weak 약한 참조? -> 더 알아보기(영어로 잘 이해X)
+    
     @IBOutlet weak var timeLabel: UILabel!
     
     #warning("TODO: - design")
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var resetBtn: UIButton!
     
+    /// for animation
+    /// CA = Core Animation
+    /// 변수를 설정해 각각 인스턴스를 만들어준다.
+    /// downcasting - type casting
+    /// ㅎㅕㅇ
+    ///
     let foreProgressLayer = CAShapeLayer()
-    
     let backProgressLayer = CAShapeLayer()
     let animation = CABasicAnimation(keyPath: "strokeEnd")
     
+    /// for timer
+    /// 타이머 기능을 사용하기 위해 timer라는 변수에 Timer의 인스턴스를 생성해 선언해 준다.
     var timer = Timer()
     var isTimerStarted: Bool = false
     var isAnimationStarted: Bool = false
+    // 체크를 위해서 10초로 설정.
+    #warning("TODO: - 체크가 끝나면 600초로 바꿀 것.")
     var time: Int = 10
     
+    #warning("TODO: - RxSwift 공부할 것")
+    // 연속으로 집중한 시간, 10분 타이머 재생횟수
+    var grit: Int = 0
+    // 휴식시간을 가진 횟수
+    var breakTime: Int = 0
+    
+    @IBOutlet weak var gritLabel: UILabel!
+    @IBOutlet weak var breakTimeLabel: UILabel!
+    
+    // viewDidLoad()는 앱이 처음 실행될때 뷰가 로드된 뒤 실행된다. 
+    // 앱의 생명주기에 대해서
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         drawBackLayer()
     } // viewDidLoad()
 
+    
     @IBAction func startBtnClicked(_ sender: UIButton) {
         
+        /// @MainActor open class UIControl:
+        /// @MainActor란?
+        /// open과 public의 차이는 뭘까?
         resetBtn.isEnabled = true
         resetBtn.alpha = 1.0
         
@@ -44,14 +99,11 @@ class ViewController: UIViewController, CAAnimationDelegate {
             isTimerStarted = true
             startBtn.setImage(UIImage(systemName: "pause"), for: .normal)
             resetBtn.isEnabled = false
-            
         } else {
-            
             pausedAnimation()
             timer.invalidate()
             isTimerStarted = false
             startBtn.setImage(UIImage(systemName: "play"), for: .normal)
-            
         }
     }
     
@@ -67,9 +119,13 @@ class ViewController: UIViewController, CAAnimationDelegate {
     
     
     func startTimer() {
+        /// class func scheduledTimer()
+        /// class func에 대해서
+        ///
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
+    /// @objc로 해야하는 이유가 뭘까?
     @objc func updateTimer() {
         
         if time < 1 {
@@ -85,17 +141,17 @@ class ViewController: UIViewController, CAAnimationDelegate {
             //MARK: - Vibration
             UIDevice.vibrate()
             
-            #warning("TODO: - 계속 집중 or 휴식 선택화면 띄우기")
+            grit += 1
+            gritLabel.text = "\(grit)"
+            
             //MARK: - 선택화면 띄우기
             // 1. 스토리보드 가져오기
             let storyboard = UIStoryboard.init(name: "SelectVC", bundle: nil)
-            // 2. 스토리보드를 통해 뷰컨트롤러 가져오기
-            guard let selectVC = storyboard.instantiateInitialViewController() else { return }
-            // 3. 팝업 효과 설정
-            selectVC.modalPresentationStyle = .overCurrentContext
-            selectVC.modalTransitionStyle = .crossDissolve
+
+            if let selectVC = storyboard.instantiateViewController(withIdentifier: "SelectVC") as? SelectVC {
+                self.navigationController?.pushViewController(selectVC, animated: true)
+            }
             
-            self.present(selectVC, animated: true)
             
         } else {
             time -= 1
@@ -199,18 +255,25 @@ class ViewController: UIViewController, CAAnimationDelegate {
         isAnimationStarted = false
     }
     
+    /// internal func에 대해서
+    /// internal: 내부의
+    /// 그럼 fileprivate와는 다른 것?
+    /// fileprivate와 private는?
     internal func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         stopAnimation()
     }
 }
 
+/// extension
 extension Int {
+    /// @frozen?
     var degreesToRadians: CGFloat {
         return CGFloat(self) * .pi / 180
     }
 }
 
 extension UIDevice {
+    /// static func에 대해서
     static func vibrate() {
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         print("Brrrrrr")

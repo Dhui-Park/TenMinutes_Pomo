@@ -29,7 +29,7 @@ class BreakTimeViewController: UIViewController {
         contentView.layer.cornerRadius = 30
         startTimer()
         
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { [weak self] _ in
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { [weak self] _ in
             guard let self = self else { return }
             embededMyOnboardingPageVC?.goNext()
         })
@@ -39,13 +39,14 @@ class BreakTimeViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
+    #warning("TODO: - Rx 적용해보기")
     @objc func updateTimer() {
         if time < 1 {
             timer.invalidate()
             time = 10
             timeLabel.text = "10:00"
             
-            self.dismiss(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         } else {
             time -= 1
             timeLabel.text = formatTime()
