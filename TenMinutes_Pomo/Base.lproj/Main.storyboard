@@ -118,21 +118,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kq7-H0-L9Q">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="집중횟수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STe-yW-GNE">
+                                <rect key="frame" x="42.000000000000007" y="112" width="86.666666666666686" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="vpr-EY-FmZ">
+                                <rect key="frame" x="42" y="171" width="309" height="457"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bE9-AH-pXd" customClass="BarChartView" customModule="DGCharts">
+                                        <rect key="frame" x="0.0" y="0.0" width="309" height="285"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="285" id="RIF-Zg-8PN"/>
+                                        </constraints>
+                                    </view>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="z3L-6q-BmD">
+                                        <rect key="frame" x="-2" y="341" width="313" height="31"/>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fuF-W7-G0e">
+                                        <rect key="frame" x="-2" y="427" width="313" height="31"/>
+                                    </slider>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3i1-Bf-1VE"/>
                         <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
                         <constraints>
-                            <constraint firstItem="Kq7-H0-L9Q" firstAttribute="leading" secondItem="3i1-Bf-1VE" secondAttribute="leading" id="JLQ-st-FVs"/>
-                            <constraint firstItem="3i1-Bf-1VE" firstAttribute="bottom" secondItem="Kq7-H0-L9Q" secondAttribute="bottom" id="Qbt-6G-DEa"/>
-                            <constraint firstItem="Kq7-H0-L9Q" firstAttribute="top" secondItem="3i1-Bf-1VE" secondAttribute="top" id="VmE-9U-MN9"/>
-                            <constraint firstItem="3i1-Bf-1VE" firstAttribute="trailing" secondItem="Kq7-H0-L9Q" secondAttribute="trailing" id="cdT-rd-Rao"/>
+                            <constraint firstItem="STe-yW-GNE" firstAttribute="leading" secondItem="3i1-Bf-1VE" secondAttribute="leading" constant="42" id="8gd-lJ-1ky"/>
+                            <constraint firstItem="STe-yW-GNE" firstAttribute="top" secondItem="3i1-Bf-1VE" secondAttribute="top" constant="53" id="BME-7B-tVu"/>
+                            <constraint firstItem="vpr-EY-FmZ" firstAttribute="top" secondItem="STe-yW-GNE" secondAttribute="bottom" constant="29" id="ORI-XB-8a4"/>
+                            <constraint firstItem="vpr-EY-FmZ" firstAttribute="leading" secondItem="3i1-Bf-1VE" secondAttribute="leading" constant="42" id="Pzb-RH-yJg"/>
+                            <constraint firstItem="vpr-EY-FmZ" firstAttribute="centerX" secondItem="3i1-Bf-1VE" secondAttribute="centerX" id="zJN-RN-zsa"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Laps" image="list.clipboard" catalog="system" id="aC2-4p-2yR"/>
+                    <connections>
+                        <outlet property="barChartView" destination="bE9-AH-pXd" id="rGI-Dg-LSa"/>
+                        <outlet property="sliderX" destination="z3L-6q-BmD" id="sSq-Ar-tEG"/>
+                        <outlet property="sliderY" destination="fuF-W7-G0e" id="K1h-8I-JeU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Twc-BJ-1MQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,6 +167,7 @@
         <!--Settings-->
         <scene sceneID="Nb4-Th-roN">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AwF-9H-2GI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="c9P-Cw-VR0" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2b3-YE-rpm">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -162,7 +189,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" id="D2N-gd-19B"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AwF-9H-2GI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2173.2824427480914" y="805.63380281690149"/>
         </scene>
@@ -179,7 +205,6 @@
                     <connections>
                         <segue destination="WoK-Hs-aoX" kind="relationship" relationship="viewControllers" id="zfc-3Y-ayX"/>
                         <segue destination="Ii0-fI-rKv" kind="relationship" relationship="viewControllers" id="WfS-I9-EwY"/>
-                        <segue destination="c9P-Cw-VR0" kind="relationship" relationship="viewControllers" id="bz9-HZ-hC5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P8X-hs-ieJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

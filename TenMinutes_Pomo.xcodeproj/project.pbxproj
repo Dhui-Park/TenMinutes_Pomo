@@ -18,6 +18,8 @@
 		B72181942AD526990025C5FE /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72181932AD526990025C5FE /* RecordVC.swift */; };
 		B72181992AD52DFF0025C5FE /* RecordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72181982AD52DFF0025C5FE /* RecordEntity.swift */; };
 		B721819B2AD52FD80025C5FE /* RecordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B721819A2AD52FD80025C5FE /* RecordRepository.swift */; };
+		B72181E92ADFB0C20025C5FE /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = B72181E82ADFB0C20025C5FE /* DGCharts */; };
+		B72181EB2ADFB0C20025C5FE /* DGChartsDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B72181EA2ADFB0C20025C5FE /* DGChartsDynamic */; };
 		B73CC9052ACC0F5A00F1AF13 /* BreakTime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73CC9042ACC0F5A00F1AF13 /* BreakTime.storyboard */; };
 		B73CC9072ACC10B000F1AF13 /* BreakTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CC9062ACC10B000F1AF13 /* BreakTimeViewController.swift */; };
 		B73CC9092ACC17E300F1AF13 /* BreakTimeWordVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73CC9082ACC17E300F1AF13 /* BreakTimeWordVC.storyboard */; };
@@ -58,12 +60,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B72181E92ADFB0C20025C5FE /* DGCharts in Frameworks */,
 				B72181902AD525B00025C5FE /* Realm in Frameworks */,
 				B789AF462ACEAEC500400F55 /* RxRelay in Frameworks */,
 				B72181922AD525B00025C5FE /* RealmSwift in Frameworks */,
 				B789AF442ACEAEC500400F55 /* RxCocoa-Dynamic in Frameworks */,
 				B789AF422ACEAEC500400F55 /* RxCocoa in Frameworks */,
 				B789AF3E2ACEAEC500400F55 /* RxBlocking in Frameworks */,
+				B72181EB2ADFB0C20025C5FE /* DGChartsDynamic in Frameworks */,
 				B789AF402ACEAEC500400F55 /* RxBlocking-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +163,8 @@
 				B789AF452ACEAEC500400F55 /* RxRelay */,
 				B721818F2AD525B00025C5FE /* Realm */,
 				B72181912AD525B00025C5FE /* RealmSwift */,
+				B72181E82ADFB0C20025C5FE /* DGCharts */,
+				B72181EA2ADFB0C20025C5FE /* DGChartsDynamic */,
 			);
 			productName = TenMinutes_Pomo;
 			productReference = B717AD6D2AC9A4A900497AAC /* TenMinutes_Pomo.app */;
@@ -191,6 +197,7 @@
 			packageReferences = (
 				B789AF3C2ACEAEC500400F55 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				B721818E2AD525B00025C5FE /* XCRemoteSwiftPackageReference "realm-swift" */,
+				B72181E72ADFB0C20025C5FE /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = B717AD6E2AC9A4A900497AAC /* Products */;
 			projectDirPath = "";
@@ -464,6 +471,14 @@
 				kind = branch;
 			};
 		};
+		B72181E72ADFB0C20025C5FE /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		B789AF3C2ACEAEC500400F55 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -484,6 +499,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B721818E2AD525B00025C5FE /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		B72181E82ADFB0C20025C5FE /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B72181E72ADFB0C20025C5FE /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+		B72181EA2ADFB0C20025C5FE /* DGChartsDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B72181E72ADFB0C20025C5FE /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGChartsDynamic;
 		};
 		B789AF3D2ACEAEC500400F55 /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
