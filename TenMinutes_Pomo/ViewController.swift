@@ -37,6 +37,8 @@ import AVFoundation
 /// - Use classes when you need to control the identity of the data you’re modeling.
 /// class 사용하면 앱 전반적으로 한번 변경할때 다 바꿀 수 있다. class는 reference type이기에
 /// - Use structures along with protocols to adopt behavior by sharing implementations.
+///
+// [A1-02]
 class ViewController: UIViewController, CAAnimationDelegate {
 
     // @IBOutlet에서 IB는 Interface Builder
@@ -69,9 +71,11 @@ class ViewController: UIViewController, CAAnimationDelegate {
     
     #warning("TODO: - RxSwift 공부할 것")
     // 연속으로 집중한 시간, 10분 타이머 재생횟수
-    var grit: Int = 0
+    var gritCount: Int = 0
     // 휴식시간을 가진 횟수
     var breakTime: Int = 0
+    
+    var gritHour: Int = 0
     
     @IBOutlet weak var gritLabel: UILabel!
     @IBOutlet weak var breakTimeLabel: UILabel!
@@ -81,6 +85,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         drawBackLayer()
+        fetchTodayGritUIApply()
     } // viewDidLoad()
 
     
@@ -128,6 +133,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
     /// @objc로 해야하는 이유가 뭘까?
     @objc func updateTimer() {
         
+        //            - [ ]  10분이 지나면
         if time < 1 {
             resetBtn.isEnabled = false
             resetBtn.alpha = 0.5
@@ -141,8 +147,35 @@ class ViewController: UIViewController, CAAnimationDelegate {
             //MARK: - Vibration
             UIDevice.vibrate()
             
-            grit += 1
-            gritLabel.text = "\(grit)"
+
+            
+//                - [ ]  그릿을 하나 추가한다
+            GritRepository.shared.addAGrit()
+            
+//                - [ ]  그릿 카운트 변경을 감지한다
+            
+            // 오늘 그릿들
+            var calendar = NSCalendar.current
+            calendar.timeZone = TimeZone(identifier: TimeZone.current.identifier)!
+            
+            let now = Date.now
+            let date = now.formatted(date: .abbreviated, time: .omitted)
+            
+//            let today = Date().removeTimeStamp
+            print(#fileID, #function, #line, "- today: \(date)")
+            fetchTodayGritUIApply()
+            
+            #warning("TODO: - 시간이 같다면 addRecord()가 아니라 updateRecordItem()")
+
+            
+            
+//            let result = recordGritCount.fetchRecords()
+            
+            let recordVC = RecordVC()
+            #warning("TODO: - 실시간 반영을 위해 했는데 RecordVC애서 반영X")
+            recordVC.updateChartWithData()
+            
+//            print("result from VC: \(result)")
             
             //MARK: - 선택화면 띄우기
             // 1. 스토리보드 가져오기
@@ -157,8 +190,26 @@ class ViewController: UIViewController, CAAnimationDelegate {
             time -= 1
             timeLabel.text = formatTime()
         }
-        
+
     }
+    
+    
+    // 오늘 그릿들의 카운트를 가져와서 UI에 반영
+    func fetchTodayGritUIApply() {
+        let fetchedGrits : [GritEntity] = GritRepository.shared.fetchGritsForToday().map{ $0 }
+        
+        
+        // createdAt이 오늘에 들어가있으면 가져온다
+        
+//                - [ ]  (조건안에서) 그릿들을 가져온다 - 가져온 그릿수
+        
+//            let gritCounts = GritRepository.shared.fetchGrits().count
+        
+//                - [ ]  가져온 그릿수를 UI에 반영한다
+        gritLabel.text = "\(fetchedGrits.count)"
+    }
+    
+    
     
     func formatTime() -> String {
         let minutes = Int(time) / 60 % 60

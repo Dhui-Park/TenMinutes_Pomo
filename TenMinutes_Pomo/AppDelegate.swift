@@ -20,15 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let shared02 : RecordRepository = RecordRepository.shared
         
 //        let test01 : RecordRepository = RecordRepository()
-//        
+        
 //        let test02 : RecordRepository = RecordRepository()
         
 //        RecordRepository.shared.addRecord()
-        RecordRepository.shared.deleteAllRecords()
+//        RecordRepository.shared.deleteAllRecords()
         
-        let result = RecordRepository.shared.fetchRecords()
+//        let result = RecordRepository.shared.fetchRecords()
 
-        print(#fileID, #function, #line, "- result: \(result)")
+//        print(#fileID, #function, #line, "- result: \(result)")
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
