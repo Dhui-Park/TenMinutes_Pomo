@@ -3,4 +3,54 @@
    uuid = "9303FA84-C5A9-41F0-AF88-2B8F3803DCDC"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4B5FB48-F415-4E9A-9F63-F86E771540EE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TenMinutes_Pomo/BreakTimeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "updateTimer()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F4B5FB48-F415-4E9A-9F63-F86E771540EE - 90dbfb622ed152e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TenMinutes_Pomo.BreakTimeViewController.updateTimer() -&gt; ()"
+                  moduleName = "TenMinutes_Pomo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dhui/Desktop/iOS%20Swift/UIKit/TenMinutes_Pomo/TenMinutes_Pomo/BreakTimeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "2316">
+               </Location>
+               <Location
+                  uuid = "F4B5FB48-F415-4E9A-9F63-F86E771540EE - 90dbfb622ed152e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TenMinutes_Pomo.BreakTimeViewController.updateTimer() -&gt; ()"
+                  moduleName = "TenMinutes_Pomo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dhui/Desktop/iOS%20Swift/UIKit/TenMinutes_Pomo/TenMinutes_Pomo/BreakTimeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "2388">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

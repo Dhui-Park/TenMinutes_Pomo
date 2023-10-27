@@ -46,12 +46,35 @@ class BreakTimeViewController: UIViewController {
             time = 10
             timeLabel.text = "10:00"
             
+            // 1. breakCreatedAt 생성
+            // 2. breakCreatedAt과 오늘 비교
+            
+
+            BreakRepository.shared.addABreak()
+            
+            // 오늘 break들
+            var calendar = NSCalendar.current
+            calendar.timeZone = TimeZone(identifier: TimeZone.current.identifier)!
+            
+            let now = Date.now
+            let date = now.formatted(date: .abbreviated, time: .omitted)
+            
+//            let today = Date().removeTimeStamp
+            print(#fileID, #function, #line, "- today: \(date)")
+            
+            if let viewController = navigationController?.viewControllers.first as? ViewController {
+                viewController.fetchTodayBreakUIApply()
+            }
+            
             self.navigationController?.popToRootViewController(animated: true)
+            
         } else {
             time -= 1
             timeLabel.text = formatTime()
         }
     }
+    
+    
     
     func formatTime() -> String {
         let minutes = Int(time) / 60 % 60

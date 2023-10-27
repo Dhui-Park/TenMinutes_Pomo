@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B702D51E2AE8EBBE0089BDF0 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B702D51D2AE8EBBE0089BDF0 /* Date+Ext.swift */; };
+		B702D5222AEB62C10089BDF0 /* BreakEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B702D5212AEB62C10089BDF0 /* BreakEntity.swift */; };
+		B702D5242AEB62F60089BDF0 /* BreakRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B702D5232AEB62F60089BDF0 /* BreakRepository.swift */; };
 		B717AD712AC9A4A900497AAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B717AD702AC9A4A900497AAC /* AppDelegate.swift */; };
 		B717AD732AC9A4AA00497AAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B717AD722AC9A4AA00497AAC /* SceneDelegate.swift */; };
 		B717AD752AC9A4AA00497AAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B717AD742AC9A4AA00497AAC /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		B702D51D2AE8EBBE0089BDF0 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		B702D5212AEB62C10089BDF0 /* BreakEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakEntity.swift; sourceTree = "<group>"; };
+		B702D5232AEB62F60089BDF0 /* BreakRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakRepository.swift; sourceTree = "<group>"; };
 		B717AD6D2AC9A4A900497AAC /* TenMinutes_Pomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenMinutes_Pomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B717AD702AC9A4A900497AAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B717AD722AC9A4AA00497AAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,36 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B702D5252AEB7A850089BDF0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B717AD742AC9A4AA00497AAC /* ViewController.swift */,
+				B717AD762AC9A4AA00497AAC /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B702D5262AEB7A9B0089BDF0 /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				B73CC90E2ACD2A1A00F1AF13 /* SelectVC.storyboard */,
+				B73CC9102ACD2A2C00F1AF13 /* SelectVC.swift */,
+			);
+			path = Select;
+			sourceTree = "<group>";
+		};
+		B702D5272AEB7AB10089BDF0 /* BreakTime */ = {
+			isa = PBXGroup;
+			children = (
+				B73CC90C2ACC3E0700F1AF13 /* MyOnboardingPageController.swift */,
+				B73CC9042ACC0F5A00F1AF13 /* BreakTime.storyboard */,
+				B73CC9062ACC10B000F1AF13 /* BreakTimeViewController.swift */,
+				B73CC9082ACC17E300F1AF13 /* BreakTimeWordVC.storyboard */,
+				B73CC90A2ACC17FE00F1AF13 /* BreakTimeWordVC.swift */,
+			);
+			path = BreakTime;
+			sourceTree = "<group>";
+		};
 		B717AD642AC9A4A900497AAC = {
 			isa = PBXGroup;
 			children = (
@@ -108,15 +142,6 @@
 				B72181952AD52DC20025C5FE /* Scenes */,
 				B717AD702AC9A4A900497AAC /* AppDelegate.swift */,
 				B717AD722AC9A4AA00497AAC /* SceneDelegate.swift */,
-				B717AD742AC9A4AA00497AAC /* ViewController.swift */,
-				B717AD762AC9A4AA00497AAC /* Main.storyboard */,
-				B73CC90C2ACC3E0700F1AF13 /* MyOnboardingPageController.swift */,
-				B73CC90E2ACD2A1A00F1AF13 /* SelectVC.storyboard */,
-				B73CC9102ACD2A2C00F1AF13 /* SelectVC.swift */,
-				B73CC9042ACC0F5A00F1AF13 /* BreakTime.storyboard */,
-				B73CC9062ACC10B000F1AF13 /* BreakTimeViewController.swift */,
-				B73CC9082ACC17E300F1AF13 /* BreakTimeWordVC.storyboard */,
-				B73CC90A2ACC17FE00F1AF13 /* BreakTimeWordVC.swift */,
 				B717AD792AC9A4AD00497AAC /* Assets.xcassets */,
 				B717AD7B2AC9A4AD00497AAC /* LaunchScreen.storyboard */,
 				B717AD7E2AC9A4AD00497AAC /* Info.plist */,
@@ -127,6 +152,9 @@
 		B72181952AD52DC20025C5FE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B702D5272AEB7AB10089BDF0 /* BreakTime */,
+				B702D5262AEB7A9B0089BDF0 /* Select */,
+				B702D5252AEB7A850089BDF0 /* Main */,
 				B72181962AD52DCB0025C5FE /* Record */,
 			);
 			path = Scenes;
@@ -146,6 +174,8 @@
 			children = (
 				B72181982AD52DFF0025C5FE /* GritEntity.swift */,
 				B721819A2AD52FD80025C5FE /* GritRepository.swift */,
+				B702D5212AEB62C10089BDF0 /* BreakEntity.swift */,
+				B702D5232AEB62F60089BDF0 /* BreakRepository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,10 +272,12 @@
 			files = (
 				B717AD752AC9A4AA00497AAC /* ViewController.swift in Sources */,
 				B73CC9112ACD2A2C00F1AF13 /* SelectVC.swift in Sources */,
+				B702D5242AEB62F60089BDF0 /* BreakRepository.swift in Sources */,
 				B73CC90B2ACC17FF00F1AF13 /* BreakTimeWordVC.swift in Sources */,
 				B73CC90D2ACC3E0700F1AF13 /* MyOnboardingPageController.swift in Sources */,
 				B721819B2AD52FD80025C5FE /* GritRepository.swift in Sources */,
 				B717AD712AC9A4A900497AAC /* AppDelegate.swift in Sources */,
+				B702D5222AEB62C10089BDF0 /* BreakEntity.swift in Sources */,
 				B702D51E2AE8EBBE0089BDF0 /* Date+Ext.swift in Sources */,
 				B72181992AD52DFF0025C5FE /* GritEntity.swift in Sources */,
 				B717AD732AC9A4AA00497AAC /* SceneDelegate.swift in Sources */,

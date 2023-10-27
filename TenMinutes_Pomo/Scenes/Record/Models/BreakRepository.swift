@@ -1,21 +1,19 @@
 //
-//  RecordRepository.swift
+//  BreakRepository.swift
 //  TenMinutes_Pomo
 //
-//  Created by dhui on 2023/10/10.
+//  Created by dhui on 2023/10/27.
 //
 
 import Foundation
 import RealmSwift
 import Realm
 // 붕어빵틀
-final class GritRepository {
+final class BreakRepository {
     
-    static let shared = GritRepository()
+    static let shared = BreakRepository()
     
     let realm = try! Realm()
-    
-    
     
     private init() {
         // Private initialization to ensure just one instance is created.
@@ -28,9 +26,9 @@ final class GritRepository {
     // [-] update - item
     // [-] delete - all, item
     
-    func addAGrit(gritCreatedAt: Date = Date()){
+    func addABreak(breakCreatedAt: Date = Date()){
         
-        let entity = GritEntity(gritCreatedAt: gritCreatedAt)
+        let entity = BreakEntity(breakCreatedAt: breakCreatedAt)
             
         try! realm.write {
             realm.add(entity)
@@ -39,16 +37,16 @@ final class GritRepository {
     
     /// fetch records
     /// return RecordEntity[]
-    func fetchGrits() -> Results<GritEntity> {
+    func fetchBreaks() -> Results<BreakEntity> {
         // Get all todos in the realm
-        let entities = realm.objects(GritEntity.self)
+        let entities = realm.objects(BreakEntity.self)
         print(#fileID, #function, #line, "- entities.count: \(entities.count)")
         return entities
     }
     
-    func fetchGritsForToday() -> Results<GritEntity>{
-        let entities = realm.objects(GritEntity.self).where {
-            $0.gritCreatedAtDate == Date().makeDateString()
+    func fetchBreaksForToday() -> Results<BreakEntity>{
+        let entities = realm.objects(BreakEntity.self).where {
+            $0.breakCreatedAtDate == Date().makeDateString()
         }
         return entities
     }
@@ -56,11 +54,11 @@ final class GritRepository {
     
     /// 단일 아이템 조회
     /// - Parameter id: ObjectId
-    /// - Returns: GritEntity?
-    func fetchGritItem(id: ObjectId) -> GritEntity? {
-        let specificGritItem = realm.object(ofType: GritEntity.self, forPrimaryKey: id)
+    /// - Returns: BreakEntity?
+    func fetchBreakItem(id: ObjectId) -> BreakEntity? {
+        let specificBreakItem = realm.object(ofType: BreakEntity.self, forPrimaryKey: id)
         
-        return specificGritItem
+        return specificBreakItem
     }
     
     
@@ -68,41 +66,41 @@ final class GritRepository {
     /// 아이템 수정
     /// - Parameters:
     ///   - id: ObjectId
-    ///   - gritCount: Int
-    func updateGrit(id: ObjectId, updatedTime: Date) {
+    ///   - breakCount: Int
+    func updateBreak(id: ObjectId, updatedTime: Date) {
         // All modifications to a realm must happen in a write block.
         // 1. id를 받는다.
         // 2. id에 해당하는 아이템을 찾는다.
-        let gritToUpdate = realm.object(ofType: GritEntity.self, forPrimaryKey: id)
+        let breakToUpdate = realm.object(ofType: BreakEntity.self, forPrimaryKey: id)
         
         // 3. 수정할 데이터를 받는다.
         
         // 4. 데이터를 수정한다.
         try! realm.write {
-            gritToUpdate?.gritCreatedAt = updatedTime
+            breakToUpdate?.breakCreatedAt = updatedTime
         }
     }
     
     
     /// 아이템 삭제
     /// - Parameter id: ObjectId
-    func deleteGrit(id: ObjectId) {
+    func deleteBreak(id: ObjectId) {
         // All modifications to a realm must happen in a write block.
-        guard let gritToDelete = realm.object(ofType: GritEntity.self, forPrimaryKey: id) else { return }
+        guard let breakToDelete = realm.object(ofType: BreakEntity.self, forPrimaryKey: id) else { return }
         
         try! realm.write {
             // Delete the Todo.
-            realm.delete(gritToDelete)
+            realm.delete(breakToDelete)
         }
         
     }
     
     
     /// 전체 삭제
-    func deleteAllGrits() {
+    func deleteAllBreaks() {
         try! realm.write {
             // Delete all instances of Dog from the realm.
-            let allEntities = realm.objects(GritEntity.self)
+            let allEntities = realm.objects(BreakEntity.self)
             realm.delete(allEntities)
         }
     }

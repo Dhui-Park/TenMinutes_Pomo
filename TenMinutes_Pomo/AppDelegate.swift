@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let test02 : RecordRepository = RecordRepository()
         
 //        RecordRepository.shared.addRecord()
-//        RecordRepository.shared.deleteAllRecords()
+//        GritRepository.shared.deleteAllGrits()
         
 //        let result = RecordRepository.shared.fetchRecords()
 

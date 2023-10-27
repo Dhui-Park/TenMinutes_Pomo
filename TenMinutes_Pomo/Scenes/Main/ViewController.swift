@@ -86,6 +86,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         super.viewDidLoad()
         drawBackLayer()
         fetchTodayGritUIApply()
+        fetchTodayBreakUIApply()
     } // viewDidLoad()
 
     
@@ -147,8 +148,6 @@ class ViewController: UIViewController, CAAnimationDelegate {
             //MARK: - Vibration
             UIDevice.vibrate()
             
-
-            
 //                - [ ]  그릿을 하나 추가한다
             GritRepository.shared.addAGrit()
             
@@ -207,6 +206,22 @@ class ViewController: UIViewController, CAAnimationDelegate {
         
 //                - [ ]  가져온 그릿수를 UI에 반영한다
         gritLabel.text = "\(fetchedGrits.count)"
+    }
+    
+    
+    // 오늘 브레이크들의 카운트를 가져와서 UI에 반영
+    func fetchTodayBreakUIApply() {
+        let fetchedBreaks : [BreakEntity] = BreakRepository.shared.fetchBreaksForToday().map{ $0 }
+        
+        
+        // createdAt이 오늘에 들어가있으면 가져온다
+        
+//                - [ ]  (조건안에서) 그릿들을 가져온다 - 가져온 그릿수
+        
+//            let gritCounts = GritRepository.shared.fetchGrits().count
+        
+//                - [ ]  가져온 그릿수를 UI에 반영한다
+        self.breakTimeLabel?.text = "\(fetchedBreaks.count)"
     }
     
     
