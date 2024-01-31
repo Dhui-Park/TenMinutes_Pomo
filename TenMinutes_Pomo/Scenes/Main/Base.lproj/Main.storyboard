@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aCv-14-fC0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aCv-14-fC0">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -82,7 +82,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="return" catalog="system" buttonSize="large"/>
                                         <connections>
-                                            <action selector="resetBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lbR-Ie-Ca4"/>
+                                            <action selector="resetBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nd4-QL-leJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGv-go-6pe">
@@ -91,7 +91,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="play" catalog="system" buttonSize="large"/>
                                         <connections>
-                                            <action selector="startBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="izO-e0-7sO"/>
+                                            <action selector="startBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bTM-22-IzQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -113,7 +113,7 @@
                         <outlet property="breakTimeLabel" destination="an9-3n-8Nb" id="e7x-28-9Vy"/>
                         <outlet property="gritLabel" destination="YkU-vQ-9qh" id="9hn-qh-bbx"/>
                         <outlet property="resetBtn" destination="38I-Qc-l5T" id="wj6-Fz-uQm"/>
-                        <outlet property="startBtn" destination="zGv-go-6pe" id="mY2-6j-R32"/>
+                        <outlet property="startBtn" destination="zGv-go-6pe" id="fDw-gS-48N"/>
                         <outlet property="timeLabel" destination="Mhx-kk-ukT" id="XWA-WS-qjt"/>
                     </connections>
                 </viewController>

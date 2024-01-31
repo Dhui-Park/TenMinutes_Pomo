@@ -11,6 +11,11 @@ import Realm
 // 붕어빵틀
 final class BreakRepository {
     
+    enum MyError: Error {
+        case writingError
+        case unknowError(err: Error)
+    }
+    
     static let shared = BreakRepository()
     
     let realm = try! Realm()
@@ -26,12 +31,16 @@ final class BreakRepository {
     // [-] update - item
     // [-] delete - all, item
     
-    func addABreak(breakCreatedAt: Date = Date()){
+    func addABreak(breakCreatedAt: Date = Date()) throws {
         
         let entity = BreakEntity(breakCreatedAt: breakCreatedAt)
-            
-        try! realm.write {
-            realm.add(entity)
+        do {
+            try realm.write {
+                realm.add(entity)
+            }
+        } catch {
+            print(#fileID, #function, #line, "- error: \(error)")
+            throw MyError.writingError
         }
     }
     

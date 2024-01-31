@@ -17,6 +17,8 @@ class BreakTimeViewController: UIViewController {
     var timer = Timer()
     var time: Int = 10
     
+    var timerVM: TimerVM = TimerVM()
+    
     var embededMyOnboardingPageVC: MyOnboardingPageController? {
         return children.first(where: { $0 is MyOnboardingPageController }) as? MyOnboardingPageController
     }
@@ -25,8 +27,8 @@ class BreakTimeViewController: UIViewController {
         super.viewDidLoad()
         print(#fileID, #function, #line, "- ")
         
-        
         contentView.layer.cornerRadius = 30
+        
         startTimer()
         
         Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { [weak self] _ in
@@ -49,8 +51,7 @@ class BreakTimeViewController: UIViewController {
             // 1. breakCreatedAt 생성
             // 2. breakCreatedAt과 오늘 비교
             
-
-            BreakRepository.shared.addABreak()
+            try? BreakRepository.shared.addABreak()
             
             // 오늘 break들
             var calendar = NSCalendar.current
@@ -63,8 +64,10 @@ class BreakTimeViewController: UIViewController {
             print(#fileID, #function, #line, "- today: \(date)")
             
             if let viewController = navigationController?.viewControllers.first as? ViewController {
-                viewController.fetchTodayBreakUIApply()
+//                viewController.timerVM.fetchTodayBreakUIApply(breakTimeLabel: viewController.breakTimeLabel)
+                timerVM.fetchTodayBreakUIApply(breakTimeLabel: viewController.breakTimeLabel)
             }
+            
             
             self.navigationController?.popToRootViewController(animated: true)
             
