@@ -30,6 +30,8 @@
 		B73CC90D2ACC3E0700F1AF13 /* MyOnboardingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CC90C2ACC3E0700F1AF13 /* MyOnboardingPageController.swift */; };
 		B73CC90F2ACD2A1A00F1AF13 /* SelectVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73CC90E2ACD2A1A00F1AF13 /* SelectVC.storyboard */; };
 		B73CC9112ACD2A2C00F1AF13 /* SelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CC9102ACD2A2C00F1AF13 /* SelectVC.swift */; };
+		B74D13292B6BEA5500EED49B /* BreakTimeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D13282B6BEA5500EED49B /* BreakTimeVM.swift */; };
+		B74D132B2B6BEA6E00EED49B /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D132A2B6BEA6E00EED49B /* Int+Ext.swift */; };
 		B789AF3E2ACEAEC500400F55 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = B789AF3D2ACEAEC500400F55 /* RxBlocking */; };
 		B789AF402ACEAEC500400F55 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B789AF3F2ACEAEC500400F55 /* RxBlocking-Dynamic */; };
 		B789AF422ACEAEC500400F55 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B789AF412ACEAEC500400F55 /* RxCocoa */; };
@@ -59,6 +61,8 @@
 		B73CC90C2ACC3E0700F1AF13 /* MyOnboardingPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOnboardingPageController.swift; sourceTree = "<group>"; };
 		B73CC90E2ACD2A1A00F1AF13 /* SelectVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectVC.storyboard; sourceTree = "<group>"; };
 		B73CC9102ACD2A2C00F1AF13 /* SelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectVC.swift; sourceTree = "<group>"; };
+		B74D13282B6BEA5500EED49B /* BreakTimeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTimeVM.swift; sourceTree = "<group>"; };
+		B74D132A2B6BEA6E00EED49B /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B702D51D2AE8EBBE0089BDF0 /* Date+Ext.swift */,
+				B74D132A2B6BEA6E00EED49B /* Int+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 				B73CC90C2ACC3E0700F1AF13 /* MyOnboardingPageController.swift */,
 				B73CC9042ACC0F5A00F1AF13 /* BreakTime.storyboard */,
 				B73CC9062ACC10B000F1AF13 /* BreakTimeViewController.swift */,
+				B74D13282B6BEA5500EED49B /* BreakTimeVM.swift */,
 				B73CC9082ACC17E300F1AF13 /* BreakTimeWordVC.storyboard */,
 				B73CC90A2ACC17FE00F1AF13 /* BreakTimeWordVC.swift */,
 			);
@@ -275,8 +281,10 @@
 				B702D5242AEB62F60089BDF0 /* BreakRepository.swift in Sources */,
 				B73CC90B2ACC17FF00F1AF13 /* BreakTimeWordVC.swift in Sources */,
 				B73CC90D2ACC3E0700F1AF13 /* MyOnboardingPageController.swift in Sources */,
+				B74D132B2B6BEA6E00EED49B /* Int+Ext.swift in Sources */,
 				B721819B2AD52FD80025C5FE /* GritRepository.swift in Sources */,
 				B717AD712AC9A4A900497AAC /* AppDelegate.swift in Sources */,
+				B74D13292B6BEA5500EED49B /* BreakTimeVM.swift in Sources */,
 				B702D5222AEB62C10089BDF0 /* BreakEntity.swift in Sources */,
 				B702D51E2AE8EBBE0089BDF0 /* Date+Ext.swift in Sources */,
 				B72181992AD52DFF0025C5FE /* GritEntity.swift in Sources */,

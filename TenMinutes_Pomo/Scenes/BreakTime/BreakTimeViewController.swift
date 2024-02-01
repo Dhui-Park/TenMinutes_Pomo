@@ -7,15 +7,19 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxRelay
+import RxCocoa
 
 class BreakTimeViewController: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
     
+    var breakTimeVM: BreakTimeVM = BreakTimeVM()
     
-    var timer = Timer()
-    var time: Int = 10
+    var disposeBag: DisposeBag = DisposeBag()
+    
     
     var embededMyOnboardingPageVC: MyOnboardingPageController? {
         return children.first(where: { $0 is MyOnboardingPageController }) as? MyOnboardingPageController
@@ -27,59 +31,52 @@ class BreakTimeViewController: UIViewController {
         
         
         contentView.layer.cornerRadius = 30
-        startTimer()
         
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { [weak self] _ in
-            guard let self = self else { return }
-            embededMyOnboardingPageVC?.goNext()
-        })
-    }
-    
-    func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-    }
-    
-    #warning("TODO: - Rx 적용해보기")
-    @objc func updateTimer() {
-        if time < 1 {
-            timer.invalidate()
-            time = 10
-            timeLabel.text = "10:00"
-            
-            // 1. breakCreatedAt 생성
-            // 2. breakCreatedAt과 오늘 비교
-            
+        setBindings()
+        
+        
+        // vm
+//        breakTimeVM.startTimer()
+        breakTimeVM.inputAction.accept(.startTimer)
 
-            BreakRepository.shared.addABreak()
-            
-            // 오늘 break들
-            var calendar = NSCalendar.current
-            calendar.timeZone = TimeZone(identifier: TimeZone.current.identifier)!
-            
-            let now = Date.now
-            let date = now.formatted(date: .abbreviated, time: .omitted)
-            
-//            let today = Date().removeTimeStamp
-            print(#fileID, #function, #line, "- today: \(date)")
-            
-            if let viewController = navigationController?.viewControllers.first as? ViewController {
+        // vm
+    }
+    
+    private func setBindings(){
+        
+        self.breakTimeVM
+            .tenMinutesString
+            .bind(to: self.timeLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        self.breakTimeVM
+            .popEvent
+            .bind(to: self.rx.popHandler)
+            .disposed(by: disposeBag)
+        
+        self.breakTimeVM
+            .goNextPageObservable
+            .debug("debug go next")
+//            .goNextPageEvent
+            .withUnretained(self)
+            .subscribe(onNext: { vc, _ in
+                vc.embededMyOnboardingPageVC?.goNext()
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
+}
+
+
+// from RxGeoLocationExample
+private extension Reactive where Base: BreakTimeViewController {
+    var popHandler: Binder<Void> {
+        return Binder(base) { vc, _ in
+            if let viewController = vc.navigationController?.viewControllers.first as? ViewController {
                 viewController.fetchTodayBreakUIApply()
             }
-            
-            self.navigationController?.popToRootViewController(animated: true)
-            
-        } else {
-            time -= 1
-            timeLabel.text = formatTime()
+            vc.navigationController?.popToRootViewController(animated: true)
         }
     }
-    
-    
-    
-    func formatTime() -> String {
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        return String(format: "%02i:%02i", minutes, seconds)
-    }
-    
 }
