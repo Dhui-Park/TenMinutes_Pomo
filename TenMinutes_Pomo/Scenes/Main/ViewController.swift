@@ -56,28 +56,31 @@ class ViewController: UIViewController, CAAnimationDelegate {
     /// downcasting - type casting
     /// ㅎㅕㅇ
     ///
+    // vc
     let foreProgressLayer = CAShapeLayer()
+    // vc
     let backProgressLayer = CAShapeLayer()
+    // vc
     let animation = CABasicAnimation(keyPath: "strokeEnd")
     
     /// for timer
     /// 타이머 기능을 사용하기 위해 timer라는 변수에 Timer의 인스턴스를 생성해 선언해 준다.
+    // vm
     var timer = Timer()
+    // vm
     var isTimerStarted: Bool = false
+    // vm
     var isAnimationStarted: Bool = false
     // 체크를 위해서 10초로 설정.
     #warning("TODO: - 체크가 끝나면 600초로 바꿀 것.")
+    // vm
     var time: Int = 10
     
     #warning("TODO: - RxSwift 공부할 것")
-    // 연속으로 집중한 시간, 10분 타이머 재생횟수
-    var gritCount: Int = 0
-    // 휴식시간을 가진 횟수
-    var breakTime: Int = 0
     
-    var gritHour: Int = 0
-    
+    // vc
     @IBOutlet weak var gritLabel: UILabel!
+    // vc
     @IBOutlet weak var breakTimeLabel: UILabel!
     
     // viewDidLoad()는 앱이 처음 실행될때 뷰가 로드된 뒤 실행된다. 
@@ -89,7 +92,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         fetchTodayBreakUIApply()
     } // viewDidLoad()
 
-    
+    //vc -> vm
     @IBAction func startBtnClicked(_ sender: UIButton) {
         
         /// @MainActor open class UIControl:
@@ -113,6 +116,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         }
     }
     
+    //vc
     @IBAction func resetBtnClicked(_ sender: UIButton) {
         stopAnimation()
         resetBtn.isEnabled = false
@@ -123,7 +127,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         timeLabel.text = "10:00"
     }
     
-    
+    // vm
     func startTimer() {
         /// class func scheduledTimer()
         /// class func에 대해서
@@ -131,6 +135,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
+    // vc
     /// @objc로 해야하는 이유가 뭘까?
     @objc func updateTimer() {
         
@@ -192,7 +197,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
 
     }
     
-    
+    // vc
     // 오늘 그릿들의 카운트를 가져와서 UI에 반영
     func fetchTodayGritUIApply() {
         let fetchedGrits : [GritEntity] = GritRepository.shared.fetchGritsForToday().map{ $0 }
@@ -208,7 +213,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         gritLabel.text = "\(fetchedGrits.count)"
     }
     
-    
+    // vc
     // 오늘 브레이크들의 카운트를 가져와서 UI에 반영
     func fetchTodayBreakUIApply() {
         let fetchedBreaks : [BreakEntity] = BreakRepository.shared.fetchBreaksForToday().map{ $0 }
@@ -225,7 +230,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
     }
     
     
-    
+    // extension
     func formatTime() -> String {
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
@@ -233,6 +238,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
     }
     
     //background layer
+    // vc
     func drawBackLayer() {
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX, y: view.frame.midY - 15), radius: 100, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         backProgressLayer.path = circlePath
@@ -255,6 +261,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
     
     // fore layer
     #warning("TODO: - 버그: 세팅화면을 갔다가 오면 안되는 것")
+    // vc
     func drawForeLayer() {
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX, y: view.frame.midY - 15), radius: 100, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         foreProgressLayer.path = circlePath
@@ -265,7 +272,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         
         view.layer.addSublayer(foreProgressLayer)
     }
-    
+    // vm -> vc
     func startResumeAnimation() {
         if !isAnimationStarted {
             startAnimation()
@@ -273,7 +280,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
             resumeAnimation()
         }
     }
-    
+    // vc
     func startAnimation() {
         resetAnimation()
         foreProgressLayer.strokeEnd = 0.0
@@ -288,7 +295,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         foreProgressLayer.add(animation, forKey: "strokeEnd")
         isAnimationStarted = true
     }
-    
+    // vc
     func resetAnimation() {
         foreProgressLayer.speed = 1.0
         foreProgressLayer.timeOffset = 0
@@ -296,13 +303,13 @@ class ViewController: UIViewController, CAAnimationDelegate {
         foreProgressLayer.strokeEnd = 0
         isAnimationStarted = false
     }
-    
+    // vc
     func pausedAnimation() {
         let pausedTime = foreProgressLayer.convertTime(CACurrentMediaTime(), from: nil)
         foreProgressLayer.speed = 0
         foreProgressLayer.timeOffset = pausedTime
     }
-    
+    // vc
     func resumeAnimation() {
         let pausedTime = foreProgressLayer.timeOffset
         foreProgressLayer.speed = 1.0
@@ -311,7 +318,7 @@ class ViewController: UIViewController, CAAnimationDelegate {
         let timeSincePaused = foreProgressLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         foreProgressLayer.beginTime = timeSincePaused
     }
-    
+    // vc
     func stopAnimation() {
         foreProgressLayer.speed = 1.0
         foreProgressLayer.timeOffset = 0

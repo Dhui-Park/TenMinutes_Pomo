@@ -29,13 +29,12 @@ class BreakTimeViewController: UIViewController {
         super.viewDidLoad()
         print(#fileID, #function, #line, "- ")
         
-        
         contentView.layer.cornerRadius = 30
         
         setBindings()
         
         
-        // vm
+        // vm에게 시킨다!
 //        breakTimeVM.startTimer()
         breakTimeVM.inputAction.accept(.startTimer)
 
@@ -80,3 +79,13 @@ private extension Reactive where Base: BreakTimeViewController {
         }
     }
 }
+
+//private extension Reactive where Base: MyOnboardingPageController {
+//    var popHandler: Binder<Void> {
+//        return Binder(base) { vc, _ in
+//            if let viewController = vc.children.first(where: { $0 is Base }) as? MyOnboardingPageController {
+//                viewController.setPageViewControllers(nextPageIndex: <#T##Int#>)
+//            }
+//        }
+//    }
+//}

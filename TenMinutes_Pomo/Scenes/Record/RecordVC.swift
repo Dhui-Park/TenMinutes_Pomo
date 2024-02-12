@@ -14,15 +14,16 @@ import RealmSwift
 class RecordVC: UIViewController, ChartViewDelegate {
     
     
-    
+    // vc
     @IBOutlet weak var barChartView: BarChartView!
-    
+    // vc
     @IBOutlet weak var sliderX: UISlider!
-    
+    // vc
     @IBOutlet weak var sliderY: UISlider!
     
     weak var axisFormatDelegate: AxisValueFormatter?
     
+    // vm
     var shouldHideData: Bool = false
     
     override func viewDidLoad() {
@@ -38,6 +39,7 @@ class RecordVC: UIViewController, ChartViewDelegate {
         
         barChartView.legend.enabled = false
         
+        // vc
         sliderX.value = 10
         sliderY.value = 100
         
@@ -49,53 +51,12 @@ class RecordVC: UIViewController, ChartViewDelegate {
         
     }
     
-//    func updateChartData() {
-//        if self.shouldHideData {
-//            barChartView.data = nil
-//            return
-//        }
-//        
-//        self.setDataCount(Int(sliderX.value) + 1, range: Double(sliderY.value))
-//    }
-//    
-//    
-//    func setDataCount(_ count: Int, range: Double) {
-//        print(#fileID, #function, #line, "- <#comment#>")
-//        let yVals = (0..<count).map { (i) -> BarChartDataEntry in
-//            let mult = range + 1
-//            let val = Double(arc4random_uniform(UInt32(mult))) + mult/3
-//            return BarChartDataEntry(x: Double(i), y: val)
-//        }
-//        
-//        var set1: BarChartDataSet! = nil
-//        if let set = barChartView.data?.first as? BarChartDataSet {
-//            set1 = set
-//            set1?.replaceEntries(yVals)
-//            barChartView.data?.notifyDataChanged()
-//            barChartView.notifyDataSetChanged()
-//        } else {
-//            set1 = BarChartDataSet(entries: yVals, label: "Data Set")
-//            set1.colors = ChartColorTemplates.vordiplom()
-//            set1.drawValuesEnabled = false
-//            
-//            let data = BarChartData(dataSet: set1)
-//            barChartView.data = data
-//            barChartView.fitBars = true
-//        }
-//        
-//        barChartView.setNeedsDisplay()
-//    }
     
+    // vm
     func updateChartWithData() {
         var dataEntries: [BarChartDataEntry] = []
         let gritCounts = getGritCountsFromDatabase()
-        
-//        for i in 0..<gritCounts {
-//            let timeIntervalForDate: TimeInterval = gritCounts[i].gritDate.timeIntervalSince1970
-//            let dataEntry = BarChartDataEntry(x: Double(timeIntervalForDate), y: Double(gritCounts[i].gritCount))
-//
-//            dataEntries.append(dataEntry)
-//        }
+
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Grit count")
         barChartView?.barData?.barWidth = 1
         let chartData = BarChartData(dataSet: chartDataSet)
@@ -106,6 +67,7 @@ class RecordVC: UIViewController, ChartViewDelegate {
         xAxis?.valueFormatter = axisFormatDelegate
     }
     
+    // vm
     func getGritCountsFromDatabase() -> Int {
       do {
         let realm = try Realm()

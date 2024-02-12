@@ -35,6 +35,7 @@ class BreakTimeVM {
     
     /// 다음 페이지로 넘어가는 이벤트
     var goNextPageEvent: PublishRelay<Void> = PublishRelay()
+    
     var goNextPageObservable: Observable<Void> = Observable.empty()
     
 //    enum Output {
@@ -71,6 +72,7 @@ class BreakTimeVM {
             }).disposed(by: disposeBag)
         
         
+        // vc로 보내줄 String 가공해서 주자!
         tenMinutesString = time
             .map { time in
             if time < 1 {
@@ -78,7 +80,7 @@ class BreakTimeVM {
             } else {
                 return time.formattedTime()
             }
-        } // presentation logic
+        } // presentation logic(화면에 보여주기 위한 로직도 vm로 보내기)(선택사항이지만 훨씬 깔끔하게 정리 가능!)
         
         
         goNextPageObservable =  Observable<Int>
